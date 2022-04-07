@@ -19,6 +19,10 @@ export const MENU: IMenuItem[] = [
     path: '/blank'
   },
   {
+    name: 'menusidebar.label.mataKuliah',
+    path: '/mataKuliah'
+  },
+  {
     name: 'menusidebar.label.mainMenu',
     children: [
       {

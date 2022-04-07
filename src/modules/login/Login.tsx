@@ -14,6 +14,7 @@ import * as Yup from 'yup';
 
 import {Form, InputGroup} from 'react-bootstrap';
 import * as AuthService from '../../services/auth';
+import * as AuthExpressService from '../../services/auth-express';
 
 const Login = () => {
   const [isAuthLoading, setAuthLoading] = useState(false);
@@ -27,10 +28,12 @@ const Login = () => {
   const login = async (email: string, password: string) => {
     try {
       setAuthLoading(true);
-      const token = await AuthService.loginByAuth(email, password);
+      const token = await AuthExpressService.login(email, password);
+      // eslint-disable-next-line no-console
+      console.log(token);
       toast.success('Login is succeed!');
       setAuthLoading(false);
-      dispatch(loginUser(token));
+      // dispatch(loginUser(token));
       navigate('/');
     } catch (error: any) {
       setAuthLoading(false);
